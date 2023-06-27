@@ -1,0 +1,23 @@
+var player = document.getElementById("player");
+var audio = document.querySelector("audio");
+var playButton = document.getElementById("play");
+var pauseButton = document.getElementById("pause");
+var stopButton = document.getElementById("stop");
+var progressBar = document.getElementById("progressBar");
+
+playButton.addEventListener("click", function() {
+audio.play();
+});
+
+pauseButton.addEventListener("click", function() {
+audio.pause();
+});
+
+stopButton.addEventListener("click", function() {
+audio.stop();
+});
+
+audio.addEventListener("timeupdate", function() {
+var progress = audio.currentTime / audio.duration * 100;
+progressBar.value = progress;
+});
